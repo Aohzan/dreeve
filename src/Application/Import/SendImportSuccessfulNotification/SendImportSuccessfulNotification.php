@@ -2,23 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Application\Import\FileImport\ImportActivityFiles;
+namespace App\Application\Import\SendImportSuccessfulNotification;
 
 use App\Application\Import\ImportedActivities;
 use App\Infrastructure\CQRS\Command\DomainCommand;
-use Symfony\Component\Console\Output\OutputInterface;
 
-final readonly class ImportActivityFiles extends DomainCommand
+final readonly class SendImportSuccessfulNotification extends DomainCommand
 {
     public function __construct(
-        private OutputInterface $output,
         private ImportedActivities $importedActivities,
     ) {
-    }
-
-    public function getOutput(): OutputInterface
-    {
-        return $this->output;
     }
 
     public function getImportedActivities(): ImportedActivities
